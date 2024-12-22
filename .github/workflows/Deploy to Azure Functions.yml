@@ -35,13 +35,15 @@ jobs:
       - name: Terraform Init
         working-directory: ./app_terraform
         run: terraform init
-        
+
       - name: Terraform Output
         id: terraform_output
         working-directory: ./app_terraform
         run: |
-          function_name=$(terraform output -raw function_app_name)
+          function_name=$(terraform output -raw 'function_app_name')
+          echo "Hello from runner"
           echo $function_name
+          echo "::set-output name=function_name::$function_name"
           echo "function_name=$function_name" >> "$GITHUB_OUTPUT"
 
       - name: Azure Login
