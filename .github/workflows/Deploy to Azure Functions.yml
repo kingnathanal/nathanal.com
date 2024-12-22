@@ -32,6 +32,10 @@ jobs:
           cli_config_credentials_token: ${{ secrets.TFC_AUTH_TOKEN}}
 
       # Initialize a new or existing Terraform working directory by creating initial files, loading any remote state, downloading modules, etc.
+      - name: Terraform Init
+        working-directory: ./app_terraform
+        run: terraform init
+        
       - name: Terraform Output
         id: terraform_output
         working-directory: ./app_terraform
