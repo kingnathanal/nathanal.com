@@ -41,10 +41,8 @@ jobs:
         id: terraform_output
         working-directory: ./app_terraform
         run: |
-          function_name=$(terraform output -raw 'function_app_name')
-          echo "Hello from runner"
+          function_name=$(terraform output -raw function_app_name)
           echo $function_name
-          echo "::set-output name=function_name::$function_name"
           echo "function_name=$function_name" >> "$GITHUB_OUTPUT"
 
       - name: Azure Login
@@ -57,3 +55,5 @@ jobs:
         with:
           app-name: ${{ steps.terraform_output.outputs.function_name }}
           package: './api'
+          scm-do-build-during-deployment: true
+          enable-oryx-build: true
