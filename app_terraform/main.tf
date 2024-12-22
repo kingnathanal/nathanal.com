@@ -63,6 +63,12 @@ resource "azurerm_linux_function_app" "nathanal" {
       support_credentials = false
     }
   }
+
+  lifecycle {
+    ignore_changes = [
+      app_settings["WEBSITE_ENABLE_SYNC_UPDATE_SITE"]
+    ]
+  }
 }
 
 resource "azurerm_static_web_app" "nathanal" {
