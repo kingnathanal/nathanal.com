@@ -1,10 +1,11 @@
-name: Deploy to Azure Functions
+name: Deploy Function App to Azure
 on:
   push:
     branches:
       - main
     paths:
       - 'api/**'
+  workflow_dispatch:
 
 env:
  TF_VAR_subscription_id: ${{ secrets.ARM_SUBSCRIPTION_ID }}
