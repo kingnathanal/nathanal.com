@@ -88,7 +88,7 @@ output "web_app_url" {
 }
 
 variable "azure_admin_id" {
-  type = string
+  type        = string
   description = "Object Id of the Azure AD user"
 }
 
