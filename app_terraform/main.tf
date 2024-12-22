@@ -79,6 +79,10 @@ output "function_app_name" {
   value = azurerm_linux_function_app.nathanal.name
 }
 
+output "nathanal_resource_group" {
+  value = azurerm_resource_group.rg.name
+}
+
 output "function_app_url" {
   value = azurerm_linux_function_app.nathanal.default_hostname
 }
