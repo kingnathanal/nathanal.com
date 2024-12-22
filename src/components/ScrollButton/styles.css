@@ -1,0 +1,22 @@
+/* ...existing code... */
+
+.scroll-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    /*background-color: #ff0000;*/
+    background-color: rgba(226, 3, 3, 0.5);
+    color: white;
+    border: none;
+    border-radius: 70%;
+    width: 70px;
+    height: 70px;
+    font-size: 20px;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s;
+  }
+  
+  .scroll-to-top:hover {
+    background-color: #95010b;
+  }
