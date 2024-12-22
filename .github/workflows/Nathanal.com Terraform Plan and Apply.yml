@@ -18,6 +18,7 @@ permissions:
   
 env:
  TF_VAR_subscription_id: ${{ secrets.ARM_SUBSCRIPTION_ID }}
+ TF_VAR_azure_admin_id: ${{ secrets.AZURE_ADMIN_ID }}
  
 jobs:
   terraform:
