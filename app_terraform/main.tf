@@ -107,6 +107,11 @@ output "web_app_url" {
   value = azurerm_static_web_app.nathanal.default_host_name
 }
 
+output "web_api_key" {
+  value = azurerm_static_web_app.nathanal.api_key
+  sensitive = true
+}
+
 variable "azure_admin_id" {
   type        = string
   description = "Object Id of the Azure AD user"

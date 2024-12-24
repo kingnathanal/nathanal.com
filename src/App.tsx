@@ -1,22 +1,21 @@
-import { Container, Navbar } from "react-bootstrap";
-import nathanal_logo from "./assets/nathanallogo.png";
 import ScrollButton from "./components/ScrollButton/ScrollButton";
 import jamie from "./assets/jamie_clean.jpg";
 import PortfolioBlobs from "./components/PortfolioBlobs/PortfolioBlobs";
 import "./App.css";
 import Footer from "./components/Footer/Footer";
 import About from "./components/About/About";
+import Header from "./components/Header/Header";
 
 
 function App() {
   const css = `
     .card-height {
-      height: 75vh;
+      height: 80vh;
     }
 
     @media (max-width: 768px) {
       .card-height {
-        height: 75vh;
+        height: 80vh;
       }
     }
 
@@ -29,17 +28,8 @@ function App() {
   return (
     <>
       <style scoped>{css}</style>
-      <Navbar
-        expand="sm"
-        className="bg-body-tertiary border-bottom bg-black shadow"
-        variant="light"
-      >
-        <Container fluid className="justify-content-center">
-          <Navbar.Brand href="#">
-            <img src={nathanal_logo} style={{ width: "15rem" }} />
-          </Navbar.Brand>
-        </Container>
-      </Navbar>
+      <Header />
+      
       <div className="overlay-box border-0 rounded-0 card card-height">
         <img
           src={jamie}
@@ -49,7 +39,7 @@ function App() {
         />
         <div
           className="card-img-overlay h-100 w-100 text-center text-white justify-content-center d-flex flex-column"
-          style={{ background: "rgba(15, 36, 76, 0.7)" }}
+          style={{ background: "rgba(1, 26, 61, 0.8)" }}
         >
           <h3
             className="fw-lighter m-4 advent-pro-header fs-3"

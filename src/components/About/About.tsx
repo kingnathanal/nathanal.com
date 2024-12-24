@@ -20,9 +20,9 @@ const About = () => {
                 <div className="card-title">
                   <h3
                     className="fw-lighter mt-2 my-2 advent-pro-header"
-                    style={{ letterSpacing: ".5rem" }}
+                    style={{ letterSpacing: ".4rem" }}
                   >
-                    William Nathanal Britton
+                    William Nathanal Britton JR
                   </h3>
                 </div>
                 <p className="card-text lh-lg">
@@ -39,7 +39,8 @@ const About = () => {
                   footer of this site will be a link to my Linkedin if I could
                   ever be a help to anyone. <br />
                   Detroit, Michigan
-                  <br /> ✌️
+                  <br />
+                  <span className="fs-2"> ✌️ </span>
                 </p>
               </div>
             </div>

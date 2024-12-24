@@ -66,7 +66,7 @@ const PortfolioBlobs = () => {
                   <img
                     src={pic.url}
                     alt={pic.name}
-                    className="img-fluid"
+                    className="img-fluid rounded"
                     style={{
                       width: "100%",
                       cursor: "pointer",

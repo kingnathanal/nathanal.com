@@ -18,7 +18,7 @@ const Footer = () => {
             <div className="col-md-4 text-center justify-content-center">
               <p>
                 &copy; {new Date().getFullYear()} HyyerCode <br /> William
-                Nathanal Britton
+                Nathanal Britton JR
               </p>
             </div>
             <div className="col-md-4 text-center">
