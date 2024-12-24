@@ -2,20 +2,9 @@
     height: 70vh;
     overflow: hidden;
 }
-
-.card {
-  height: 60vh;
-}
-
-@media (max-width: 768px) {
-  .card {
-    height: 60vh;
-  }
-}
-
-@media (max-width: 576px) {
-    .card {
-        height: 80vh;
-    }
-  }
   
+.advent-pro-header {
+    font-family: "Advent Pro", serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+  }

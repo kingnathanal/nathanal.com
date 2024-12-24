@@ -38,7 +38,7 @@ const PortfolioBlobs = () => {
 
   return (
     <>
-      <div className="container-fluid p-3 mt-5">
+      <div className="container-fluid p-3 mt-2">
         <div className="row row-cols-2 row-cols-xs-1 row-cols-sm-2 row-cols-md-3 row-cols-md-4 p-0">
           <PhotoProvider
             overlayRender={(props) => {
@@ -46,7 +46,7 @@ const PortfolioBlobs = () => {
                 <>
                   <SlideToolbar
                     {...props}
-                    items={["arrowLeft", "countText", "arrowRight"]}
+                    items={["arrowLeft", "arrowRight"]}
                   />
                   <CloseButton onClick={props.onClose} />
                 </>
@@ -54,7 +54,12 @@ const PortfolioBlobs = () => {
             }}
             enableMouseZoom={false}
           >
-            {isLoading && <div>Loading...</div>}
+            {isLoading && (
+            <div>Loading...   
+              <div className="spinner-border text-primary" role="status">
+                <span className="visually-hidden">Loading...</span>
+              </div>  
+            </div>)}
             {blobUrls.map((pic) => (
               <div className="col p-2" key={pic.name}>
                 <PhotoView src={pic.url} key={pic.name}>
