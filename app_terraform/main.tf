@@ -108,7 +108,7 @@ output "web_app_url" {
 }
 
 output "web_api_key" {
-  value = azurerm_static_web_app.nathanal.api_key
+  value     = azurerm_static_web_app.nathanal.api_key
   sensitive = true
 }
 
