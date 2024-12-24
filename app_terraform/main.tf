@@ -17,7 +17,7 @@ resource "azurerm_storage_account" "blobs" {
 
   blob_properties {
     cors_rule {
-      allowed_headers    = ["http://localhost:5173","https://www.nathanal.com","https://nathanal.com"]
+      allowed_headers    = ["http://localhost:5173", "https://www.nathanal.com", "https://nathanal.com"]
       allowed_methods    = ["GET", "HEAD"]
       allowed_origins    = ["*"]
       exposed_headers    = ["*"]
@@ -69,7 +69,7 @@ resource "azurerm_linux_function_app" "nathanal" {
     }
 
     cors {
-      allowed_origins     = ["http://localhost:5173","https://www.nathanal.com","https://nathanal.com"]
+      allowed_origins     = ["http://localhost:5173", "https://www.nathanal.com", "https://nathanal.com"]
       support_credentials = false
     }
   }
