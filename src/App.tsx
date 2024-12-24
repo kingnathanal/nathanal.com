@@ -63,8 +63,8 @@ function App() {
       </div>
 
       <PortfolioBlobs />
-      <ScrollButton />
       <About />
+      <ScrollButton />
       <Footer />
     </>
   );

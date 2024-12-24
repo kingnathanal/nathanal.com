@@ -20,7 +20,7 @@ const About = () => {
                 <div className="card-title">
                   <h3
                     className="fw-lighter mt-2 my-2 advent-pro-header"
-                    style={{ letterSpacing: ".4rem" }}
+                    style={{ letterSpacing: ".3rem" }}
                   >
                     William Nathanal Britton JR
                   </h3>
