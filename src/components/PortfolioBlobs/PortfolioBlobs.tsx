@@ -23,7 +23,10 @@ const PortfolioBlobs = () => {
     const getPortfolioPics = async () => {
       setIsLoading(true);
       await fetch("https://hyyercodefunc.azurewebsites.net/api/nathanal", {
-        //mode: 'no-cors'
+        headers: {
+          'Content-Type': 'application/json',
+          'Access-Control-Allow-Origin': '*'
+        }
       })
         .then((response) => response.json())
         .then((data) => {
