@@ -1,0 +1,59 @@
+name: Deploy static web app to Azure
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - '!app_terraform/**'
+      - '!api/**'
+  workflow_dispatch:
+
+env:
+ TF_VAR_subscription_id: ${{ secrets.ARM_SUBSCRIPTION_ID }}
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v4
+
+      # Install the latest version of Terraform CLI and configure the Terraform CLI configuration file with a Terraform Cloud user API token
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v2
+        with:
+          cli_config_credentials_token: ${{ secrets.TFC_AUTH_TOKEN}}
+          terraform_wrapper: false
+
+      # Initialize a new or existing Terraform working directory by creating initial files, loading any remote state, downloading modules, etc.
+      - name: Terraform Init
+        working-directory: ./app_terraform
+        run: terraform init
+
+      - name: Terraform Output
+        id: terraform_output
+        working-directory: ./app_terraform
+        run: |
+          web_app_key=$(terraform output -raw web_api_key)
+          echo $web_app_key
+          echo "web_app_key=$web_app_key" >> "$GITHUB_OUTPUT"
+
+      - name: Use Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '23'
+      
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build
+        run: npm run build
+
+      - name: Deploy to Azure Static Web Apps
+        uses: azure/static-web-apps-deploy@v1
+        with:
+          azure_static_web_apps_api_token: ${{ steps.terraform_output.outputs.web_app_key }}
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
+          action: 'upload'
+          app_location: '.'
+          output_location: 'dist'
