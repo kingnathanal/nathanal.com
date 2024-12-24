@@ -36,7 +36,6 @@ jobs:
         working-directory: ./app_terraform
         run: |
           web_app_key=$(terraform output -raw web_api_key)
-          echo $web_app_key
           echo "web_app_key=$web_app_key" >> "$GITHUB_OUTPUT"
 
       - name: Use Node.js
