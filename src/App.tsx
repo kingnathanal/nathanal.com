@@ -39,7 +39,7 @@ function App() {
         />
         <div
           className="card-img-overlay h-100 w-100 text-center text-white justify-content-center d-flex flex-column"
-          style={{ background: "rgba(1, 26, 61, 0.8)" }}
+          style={{ background: "rgba(1, 26, 61, 0.7)" }}
         >
           <h3
             className="fw-lighter m-4 advent-pro-header fs-3"
