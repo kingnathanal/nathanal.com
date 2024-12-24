@@ -7,6 +7,7 @@ on:
       - '**'
       - '!app_terraform/**'
       - '!api/**'
+      - '!.github/**'
   workflow_dispatch:
 
 env:
@@ -57,3 +58,4 @@ jobs:
           action: 'upload'
           app_location: '.'
           output_location: 'dist'
+          skip_app_build: true
