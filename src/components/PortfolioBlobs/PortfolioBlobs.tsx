@@ -22,7 +22,7 @@ const PortfolioBlobs = () => {
   useEffect(() => {
     const getPortfolioPics = async () => {
       setIsLoading(true);
-      await fetch("https://hyyercodefunc.azurewebsites.net/api/nathanal", {
+      await fetch("https://api.nathanal.com/api/nathanal", {
         headers: {
           'Content-Type': 'application/json',
           'Access-Control-Allow-Origin': '*'

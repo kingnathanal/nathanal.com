@@ -1,4 +1,4 @@
-name: Nathanal.com Terraform Plan and Apply
+name: Plan and Apply Terraform
 
 on:
   push:
