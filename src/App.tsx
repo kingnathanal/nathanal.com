@@ -8,26 +8,8 @@ import Header from "./components/Header/Header";
 
 
 function App() {
-  const css = `
-    .card-height {
-      height: 80vh;
-    }
-
-    @media (max-width: 768px) {
-      .card-height {
-        height: 80vh;
-      }
-    }
-
-    @media (max-width: 576px) {
-      .card-height {
-          height: 93vh;
-      }
-    }
-  `;
   return (
     <>
-      <style scoped>{css}</style>
       <Header />
       
       <div className="overlay-box border-0 rounded-0 card card-height">

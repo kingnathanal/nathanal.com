@@ -18,22 +18,23 @@ function shuffle(array: PortfolioPic[]) {
 const PortfolioBlobs = () => {
   const [blobUrls, setBlobUrls] = useState<PortfolioPic[]>([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     const getPortfolioPics = async () => {
       setIsLoading(true);
-      await fetch("https://api.nathanal.com/api/nathanal", {
-        headers: {
-          'Content-Type': 'application/json',
-          'Access-Control-Allow-Origin': '*'
-        }
-      })
+      setError(null);
+      await fetch("https://api.nathanal.com/api/nathanal")
         .then((response) => response.json())
         .then((data) => {
-          console.log(data);
           shuffle(data);
           setBlobUrls(data);
           setIsLoading(false);
+        })
+        .catch((err) => {
+          setError("Failed to load portfolio images. Please try again later.");
+          setIsLoading(false);
+          console.error("Error fetching portfolio images:", err);
         });
     };
     getPortfolioPics();
@@ -62,6 +63,10 @@ const PortfolioBlobs = () => {
               <div className="spinner-border text-primary" role="status">
                 <span className="visually-hidden">Loading...</span>
               </div>  
+            </div>)}
+            {error && (
+            <div className="alert alert-danger" role="alert">
+              {error}
             </div>)}
             {blobUrls.map((pic) => (
               <div className="col p-2" key={pic.name}>
