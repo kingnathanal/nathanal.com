@@ -11,7 +11,7 @@ const Header = () => {
       >
         <Container fluid className="justify-content-center">
           <Navbar.Brand href="#">
-            <img src={nathanal_logo} style={{ width: "12rem" }} />
+            <img src={nathanal_logo} alt="Nathanal Photography logo" style={{ width: "12rem" }} />
           </Navbar.Brand>
         </Container>
       </Navbar>

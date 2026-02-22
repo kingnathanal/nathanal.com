@@ -17,9 +17,9 @@ resource "azurerm_storage_account" "blobs" {
 
   blob_properties {
     cors_rule {
-      allowed_headers    = ["http://localhost:5173", "https://www.nathanal.com", "https://nathanal.com"]
+      allowed_headers    = ["*"]
       allowed_methods    = ["GET", "HEAD"]
-      allowed_origins    = ["*"]
+      allowed_origins    = ["http://localhost:5173", "https://www.nathanal.com", "https://nathanal.com"]
       exposed_headers    = ["*"]
       max_age_in_seconds = 200
     }
@@ -59,7 +59,6 @@ resource "azurerm_linux_function_app" "nathanal" {
 
   app_settings = {
     "NATHANAL_BLOB_CONTAINER" : azurerm_storage_container.blobs.name
-    "NATHANAL_BLOB_STORAGE_KEY" : azurerm_storage_account.blobs.primary_access_key
   }
 
   site_config {
